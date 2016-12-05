@@ -26,26 +26,16 @@ public class AttackScript : MonoBehaviour {
         {
             if(!cd.IsOnCoolDown)
             {
-                isAttacking = true;
-                cd.Start(0.2f);
                 attkCounter++;
+                cd.Start(1f);
             }
-        }
-
-        if (timer >= totalTimer)
-        {
             if(attkCounter > totalAttkCounter)
             {
                 attkCounter = 0;
-                timer = 0f;
-                isAttacking = false;
             }
+            
         }
 
-        if (isAttacking)
-        {
-            timer += Time.deltaTime;
-            swordCol.gameObject.SetActive(true);
-        }
+        
     }
 }

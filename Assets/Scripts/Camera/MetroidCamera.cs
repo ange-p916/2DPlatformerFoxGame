@@ -95,18 +95,18 @@ public class MetroidCamera : MonoBehaviour
         focusPosition += Vector2.right * currentLookAheadX;
         transform.position = (Vector3)focusPosition + Vector3.forward * -10;
 
-        if (Input.GetAxisRaw("Look") < -0.5f)
-        {
-            verticalOffset -= lookDownVariable;
-        }
-        else if(Input.GetAxisRaw("Look") > 0.5f)
-        {
-            verticalOffset += lookUpVariable;
-        }
-        else
-        {
-            verticalOffset = newLookVariable;
-        }
+        //if (Input.GetAxisRaw("Look") < -0.5f)
+        //{
+        //    verticalOffset -= lookDownVariable;
+        //}
+        //else if(Input.GetAxisRaw("Look") > 0.5f)
+        //{
+        //    verticalOffset += lookUpVariable;
+        //}
+        //else
+        //{
+        //    verticalOffset = newLookVariable;
+        //}
 
         verticalOffset = Mathf.Clamp(verticalOffset, -lookDownVariable, lookUpVariable);
     }
