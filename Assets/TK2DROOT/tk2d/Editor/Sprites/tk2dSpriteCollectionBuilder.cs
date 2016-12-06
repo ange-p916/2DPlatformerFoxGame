@@ -61,8 +61,14 @@ public class tk2dSpriteCollectionBuilder
 	public static bool IsTextureImporterSetUp(string assetPath)
 	{
         TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(assetPath);
-        if (importer.textureType != TextureImporterType.Advanced ||
-            importer.textureFormat != TextureImporterFormat.AutomaticTruecolor ||
+        if (
+#if UNITY_5_5_OR_NEWER
+			(importer.textureType != TextureImporterType.Default && importer.textureType != TextureImporterType.Sprite) ||
+			importer.textureCompression != TextureImporterCompression.Uncompressed ||
+#else
+			importer.textureType != TextureImporterType.Advanced ||
+			importer.textureFormat != TextureImporterFormat.AutomaticTruecolor ||
+#endif
             importer.npotScale != TextureImporterNPOTScale.None ||
             importer.isReadable != true ||
 #if (UNITY_3_5 || UNITY_4_0 || UNITY_4_1 || UNITY_4_2 || UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7 || UNITY_4_8 || UNITY_4_9)
@@ -81,8 +87,14 @@ public class tk2dSpriteCollectionBuilder
 	{
 		// make sure the source texture is npot and readable, and uncompressed
         TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(assetPath);
-        if (importer.textureType != TextureImporterType.Advanced ||
-            importer.textureFormat != TextureImporterFormat.AutomaticTruecolor ||
+        if (
+#if UNITY_5_5_OR_NEWER
+			(importer.textureType != TextureImporterType.Default && importer.textureType != TextureImporterType.Sprite) ||
+			importer.textureCompression != TextureImporterCompression.Uncompressed ||
+#else
+			importer.textureType != TextureImporterType.Advanced ||
+			importer.textureFormat != TextureImporterFormat.AutomaticTruecolor ||
+#endif
             importer.npotScale != TextureImporterNPOTScale.None ||
             importer.isReadable != true ||
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1)
@@ -95,8 +107,16 @@ public class tk2dSpriteCollectionBuilder
 #endif
 		    )
         {
-            importer.textureFormat = TextureImporterFormat.AutomaticTruecolor;
-            importer.textureType = TextureImporterType.Advanced;
+#if UNITY_5_5_OR_NEWER
+			if (importer.textureType != TextureImporterType.Default && importer.textureType != TextureImporterType.Sprite)
+			{
+				importer.textureType = TextureImporterType.Default;
+			}
+			importer.textureCompression = TextureImporterCompression.Uncompressed;
+#else
+			importer.textureType = TextureImporterType.Advanced;
+			importer.textureFormat = TextureImporterFormat.AutomaticTruecolor;
+#endif
             importer.npotScale = TextureImporterNPOTScale.None;
             importer.isReadable = true;
 			importer.mipmapEnabled = false;
@@ -1372,7 +1392,7 @@ public class tk2dSpriteCollectionBuilder
 
 			font.data.invOrthoSize = coll.invOrthoSize;
 			font.data.halfTargetHeight = coll.halfTargetHeight;
-			font.data.texelSize = new Vector3(scale / gen.globalScale, scale / gen.globalScale, 0.0f);
+			font.data.texelSize = new Vector3(scale / gen.globalScale * gen.globalTextureRescale, scale / gen.globalScale * gen.globalTextureRescale, 0.0f);
 
 			// Managed?
 			font.data.managedFont = gen.managedSpriteCollection;
@@ -1488,6 +1508,31 @@ public class tk2dSpriteCollectionBuilder
 			importer.maxTextureSize = gen.maxTextureSize;
 			textureDirty = true;
 		}
+
+#if UNITY_5_5_OR_NEWER
+		bool is16Bit = false;
+		TextureImporterCompression targetCompression;
+		switch (gen.textureCompression)
+		{
+		case tk2dSpriteCollection.TextureCompression.Uncompressed: targetCompression = TextureImporterCompression.Uncompressed; break;
+		case tk2dSpriteCollection.TextureCompression.Reduced16Bit: targetCompression = TextureImporterCompression.Uncompressed; is16Bit = true; break;
+		case tk2dSpriteCollection.TextureCompression.Dithered16Bit_Alpha: targetCompression = TextureImporterCompression.Uncompressed; is16Bit = true; break;
+		case tk2dSpriteCollection.TextureCompression.Dithered16Bit_NoAlpha: targetCompression = TextureImporterCompression.Uncompressed; is16Bit = true; break;
+		case tk2dSpriteCollection.TextureCompression.Compressed: targetCompression = TextureImporterCompression.Compressed; break;
+
+		default: targetCompression = TextureImporterCompression.Uncompressed; break;
+		}
+
+		if (targetCompression != importer.textureCompression)
+		{
+			importer.textureCompression = targetCompression;
+			if (is16Bit)
+			{
+				Debug.Log("16 bit texture / dithering needs to be manually set-up per platform");
+			}
+			textureDirty = true;
+		}
+#else
 		TextureImporterFormat targetFormat;
 		switch (gen.textureCompression)
 		{
@@ -1502,10 +1547,10 @@ public class tk2dSpriteCollectionBuilder
 
 		if (targetFormat != importer.textureFormat)
 		{
-			importer.textureFormat = targetFormat;
-			textureDirty = true;
+		importer.textureFormat = targetFormat;
+		textureDirty = true;
 		}
-
+#endif
 		if (importer.filterMode != gen.filterMode) 
 		{ 
 			importer.filterMode = gen.filterMode; 
@@ -1991,7 +2036,7 @@ public class tk2dSpriteCollectionBuilder
 			coll.spriteDefinitions[i].boundsData[1] = (boundsMax - boundsMin);
 
 			// this is the dimension of exactly one pixel, scaled to match sprite dimensions and scale
-			coll.spriteDefinitions[i].texelSize = new Vector3(scale * thisTexParam.scale.x / gen.globalScale, scale * thisTexParam.scale.y / gen.globalScale, 0.0f);
+			coll.spriteDefinitions[i].texelSize = new Vector3(scale * thisTexParam.scale.x / gen.globalScale * gen.globalTextureRescale, scale * thisTexParam.scale.y / gen.globalScale * gen.globalTextureRescale, 0.0f);
 			
 			coll.spriteDefinitions[i].untrimmedBoundsData = new Vector3[2];
 			if (mesh)

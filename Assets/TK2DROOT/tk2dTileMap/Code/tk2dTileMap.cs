@@ -255,7 +255,7 @@ public class tk2dTileMap : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBuil
 
 	public void Build(BuildFlags buildFlags)
 	{
-#if UNITY_EDITOR || !UNITY_FLASH
+#if UNITY_EDITOR
 		// Sanitize tilePrefabs input, to avoid branches later
 		if (data != null && spriteCollection != null)
 		{
@@ -313,12 +313,16 @@ public class tk2dTileMap : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBuil
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2)
 			tk2dSpriteDefinition def = SpriteCollectionInst.FirstValidDefinition;
 			if (def != null && def.physicsEngine == tk2dSpriteDefinition.PhysicsEngine.Physics2D) {
+#if !STRIP_PHYSICS_2D
 				ColliderBuilder2D.Build(this, forceBuild);
+#endif
 			}
 			else 
 #endif
 			{
+#if !STRIP_PHYSICS_3D
 				ColliderBuilder3D.Build(this, forceBuild);
+#endif
 			}
 			BuilderUtil.SpawnPrefabs(this, forceBuild);
 		}

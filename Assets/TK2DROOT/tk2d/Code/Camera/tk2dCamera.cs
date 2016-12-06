@@ -653,8 +653,12 @@ public class tk2dCamera : MonoBehaviour
 		float zoomScale = 1.0f / ZoomFactor;
 
 		// Only need the half texel offset on PC/D3D, when not running in d3d11 mode
+		bool isWebPlayer = false;
+		#if !UNITY_5_4_OR_NEWER
+		isWebPlayer = Application.platform == RuntimePlatform.WindowsWebPlayer;
+		#endif
 		bool needHalfTexelOffset = (Application.platform == RuntimePlatform.WindowsPlayer ||
-						   			Application.platform == RuntimePlatform.WindowsWebPlayer ||
+									isWebPlayer ||
 						   			Application.platform == RuntimePlatform.WindowsEditor);
 		float halfTexel = (halfTexelOffset && needHalfTexelOffset && SystemInfo.graphicsShaderLevel < 40) ? 0.5f : 0.0f;
 
@@ -789,7 +793,10 @@ public class tk2dCamera : MonoBehaviour
 
 #if !(UNITY_3_5 || UNITY_4_0 || UNITY_4_1)
 			// Windows phone?
-			if (Application.platform == RuntimePlatform.WP8Player &&
+			if (
+#if !UNITY_5_3_OR_NEWER
+				Application.platform == RuntimePlatform.WP8Player &&
+#endif
 			    (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight)) {
 				float angle = (Screen.orientation == ScreenOrientation.LandscapeRight) ? 90.0f : -90.0f;
 				Matrix4x4 m2 = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(0, 0, angle), Vector3.one);

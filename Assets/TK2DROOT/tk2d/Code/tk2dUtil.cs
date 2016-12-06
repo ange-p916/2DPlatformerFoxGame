@@ -118,7 +118,8 @@ public static class tk2dUtil {
 		UnityEditor.EditorUtility.SetDirty(@object);
 
 #if (UNITY_5_3 || UNITY_5_4 || UNITY_5_6 || UNITY_5_7 || UNITY_5_8 || UNITY_5_9 || UNITY_6_0)
-		if (!string.IsNullOrEmpty(UnityEditor.AssetDatabase.GetAssetPath(@object)))
+		string objectPath = UnityEditor.AssetDatabase.GetAssetPath(@object);
+		if (string.IsNullOrEmpty(objectPath))
 		{
 			string scenePath = UnityEditor.AssetDatabase.GetAssetOrScenePath(@object);
 			var scene = UnityEditor.SceneManagement.EditorSceneManager.GetSceneByPath(scenePath);
