@@ -5,12 +5,18 @@ public class PlayerKeyTracker : MonoBehaviour {
 
     public LayerMask WhatIsEnemy;
 
+    EnemyReactor enemyReact;
+
     public KeyCode AttackKey = KeyCode.K;
     public KeyCode JumpKey = KeyCode.J;
     public KeyCode BackDashKey = KeyCode.Space;
 
     void Awake()
     {
+        enemyReact = FindObjectOfType<EnemyReactor>();
+        enemyReact.OnHappen += SendAttackData;
+        enemyReact.OnHappen += SendDashData;
+        enemyReact.OnHappen += SendJumpData;
     }
 
 	/*
@@ -22,31 +28,50 @@ public class PlayerKeyTracker : MonoBehaviour {
     
     void Update()
     {
+
         if(Input.GetKeyDown(AttackKey))
         {
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, Vector2.right, 10f, WhatIsEnemy);
-            if(ray)
+            if(enemyReact != null)
             {
-
+                enemyReact.Happened(enemyReact);
             }
             
         }
 
         if (Input.GetKeyDown(JumpKey))
         {
-
+            if (enemyReact != null)
+            {
+                enemyReact.OnHappen(enemyReact);
+            }
         }
 
         if (Input.GetKeyDown(BackDashKey))
         {
-
+            if (enemyReact != null)
+            {
+                enemyReact.OnHappen(enemyReact);
+            }
         }
 
     }
 
-    public void SendAttackData()
+    public void SendAttackData(EnemyReactor e)
     {
-        print("Attacked");
+        print("ATTACK sent from player");
+        e.ReactToAttack();
+    }
+
+    public void SendJumpData(EnemyReactor e)
+    {
+        print("JUMP sent from player");
+        e.ReactToJump();
+    }
+
+    public void SendDashData(EnemyReactor e)
+    {
+        print("DASH sent from player");
+        e.ReactToDash();
     }
 
 }
