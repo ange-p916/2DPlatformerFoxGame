@@ -427,7 +427,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22499166, guid: 6bea3c9b93af07344894b6862ae17b19, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6bea3c9b93af07344894b6862ae17b19, type: 2}
@@ -482,6 +482,10 @@ Prefab:
     - target: {fileID: 3320442, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454380, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
+      propertyPath: WhatIsEnemy.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
