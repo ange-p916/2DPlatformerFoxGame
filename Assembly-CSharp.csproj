@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D4A9B888-2D56-7143-E911-506566F67ACC}</ProjectGuid>
+    <ProjectGuid>{D2216553-559D-F8E0-D89F-640BB641D852}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,7 +46,17 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\MetroidCamera.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyReactor.cs" />
+     <Compile Include="Assets\Scripts\Enemies\DiffProjTypes.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyBase.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyBat.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyChargingScript.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyFlying.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyFlyingShooter.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyJumpingScript.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyMeleeScript.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyProjectilePool.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyReqComp.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyShootingScript.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\AttackScript.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\Controller2D.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\DodgeRoll.cs" />
@@ -54,7 +64,6 @@
      <Compile Include="Assets\Scripts\PlayablePlayer\PlayerAnimController.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\PlayerEnemyManager.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\PlayerHealthController.cs" />
-     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerKeyTracker.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\StaminaBar.cs" />
      <Compile Include="Assets\Scripts\Utilities\Cooldown.cs" />
      <Compile Include="Assets\Scripts\Utilities\UtilityManager.cs" />

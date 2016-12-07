@@ -313,14 +313,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11403034, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
-      propertyPath: stamina
-      value: 
-      objectReference: {fileID: 1728200238}
     - target: {fileID: 11460592, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
       propertyPath: dashDirText
       value: 
       objectReference: {fileID: 2091034014}
+    - target: {fileID: 11403034, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
+      propertyPath: stamina
+      value: 
+      objectReference: {fileID: 1728200238}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
   m_IsPrefabParent: 0
@@ -406,11 +406,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 450084, guid: dae798b66371bf642a2327e6166418ed, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.0027924
+      value: -5.27
       objectReference: {fileID: 0}
     - target: {fileID: 450084, guid: dae798b66371bf642a2327e6166418ed, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.46
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 450084, guid: dae798b66371bf642a2327e6166418ed, type: 2}
       propertyPath: m_LocalPosition.z

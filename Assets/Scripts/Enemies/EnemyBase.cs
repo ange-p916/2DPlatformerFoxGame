@@ -5,31 +5,37 @@ public class EnemyBase : MonoBehaviour {
 
     public LayerMask WhatIsPlayer;
     public LayerMask WhatIsWall;
-    Rigidbody2D rb2d;
-    Vector2 whatSideIsPlayerAt;
+    protected Rigidbody2D rb2d;
+    protected Vector2 whatSideIsPlayerAt;
     public float distanceToPlayer;
     public float engageDistance;
-    protected PlayablePlayer mPlayer;
+    protected PlayablePlayer player;
+    protected Vector2 dirToTarget;
+    protected float dstToTarget;
 
     protected virtual void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        mPlayer = FindObjectOfType<PlayablePlayer>();
+        player = FindObjectOfType<PlayablePlayer>();
     }
 
     protected virtual void Update()
     {
-        LineOfSight();
+        whatSideIsPlayerAt = (player.transform.position - this.transform.position).x > 0 ? Vector2.right : Vector2.left;
+        distanceToPlayer = (player.transform.position - this.transform.position).sqrMagnitude;
+        if(LineOfSight())
+        {
+            Debug.DrawLine(transform.position, player.transform.position);
+        }
     }
 
-    protected void LineOfSight()
+    protected bool LineOfSight()
     {
-        whatSideIsPlayerAt = (mPlayer.transform.position - this.transform.position).x > 0 ? Vector2.right : Vector2.left;
-        var circleHit = Physics2D.CircleCast(transform.position, engageDistance, mPlayer.transform.position, engageDistance, WhatIsPlayer);
-        var lineBetweenWallAndPlayer = Physics2D.Linecast(transform.position, mPlayer.transform.position, WhatIsWall);
         
-        if (!lineBetweenWallAndPlayer && circleHit)
-            return;
-        Debug.DrawLine(transform.position, mPlayer.transform.position);
+        var targetInView = Physics2D.CircleCast(transform.position, engageDistance, Vector2.zero, engageDistance, WhatIsPlayer);
+        dirToTarget = (player.transform.position - this.transform.position).normalized;
+        dstToTarget = Vector2.Distance(transform.position, player.transform.position);
+
+        return !Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, WhatIsWall) && targetInView;
     }
 }

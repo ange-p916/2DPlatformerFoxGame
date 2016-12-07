@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{78B14B36-2754-6C06-FED0-2C18DDBBF312}</ProjectGuid>
+    <ProjectGuid>{A81FFA2E-EACA-EC75-B64C-E01D8FE0269B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -178,10 +178,10 @@
  <HintPath>C:/Program Files/Unity533f1/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
  <Reference Include="tk2dExternal">
- <HintPath>C:/NewGameInMaking/ThisIsItBOYS/Assets/TK2DROOT/tk2d/Editor/tk2dExternal.dll</HintPath>
+ <HintPath>C:/THISISITBOYS/Assets/TK2DROOT/tk2d/Editor/tk2dExternal.dll</HintPath>
  </Reference>
  <Reference Include="tk2dSkin">
- <HintPath>C:/NewGameInMaking/ThisIsItBOYS/Assets/TK2DROOT/tk2d/Editor/tk2dSkin.dll</HintPath>
+ <HintPath>C:/THISISITBOYS/Assets/TK2DROOT/tk2d/Editor/tk2dSkin.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity533f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -195,7 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{D4A9B888-2D56-7143-E911-506566F67ACC}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{D2216553-559D-F8E0-D89F-640BB641D852}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

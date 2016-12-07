@@ -10,7 +10,9 @@ GameObject:
   - 4: {fileID: 450084}
   - 212: {fileID: 21283076}
   - 61: {fileID: 6134630}
-  - 114: {fileID: 11411704}
+  - 50: {fileID: 5007134}
+  - 114: {fileID: 11447604}
+  - 114: {fileID: 11439442}
   m_Layer: 10
   m_Name: ENEMY
   m_TagString: Untagged
@@ -25,11 +27,28 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0027924, y: -4.46, z: 0}
+  m_LocalPosition: {x: -5.27, y: -0.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5007134
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109562}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &6134630
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -44,7 +63,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &11411704
+--- !u!114 &11439442
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,7 +71,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 109562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9aa8e1038411a74ab9f6a22ed76063d, type: 3}
+  m_Script: {fileID: 11500000, guid: d496af2a4e8d83943971863d9df76fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
+  WhatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &11447604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605a9a92972405649a24651d89ee6683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WhatIsPlayer:
@@ -62,8 +96,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   distanceToPlayer: 0
-  engageDistance: 5
-  mPlayer: {fileID: 0}
+  engageDistance: 10
+  flySpeed: 1.5
+  chaseTimer: 5
+  newChaseTimer: 5
 --- !u!212 &21283076
 SpriteRenderer:
   m_ObjectHideFlags: 1
