@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(EnemyMeleeScript))]
 public class EnemyBat : EnemyFlying {
 
     public float timer = 1f;

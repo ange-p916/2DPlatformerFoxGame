@@ -46,18 +46,19 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\MetroidCamera.cs" />
-     <Compile Include="Assets\Scripts\Enemies\DiffProjTypes.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyBase.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyBat.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyChargingScript.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyFlying.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyFlyingFlockScript.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyFlyingShooter.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyJumpingScript.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyMeleeScript.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyProjectilePool.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyReqComp.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyShootingScript.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyBat.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFlyingFlockScript.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFlyingShooter.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFrog.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyGargoyle.cs" />
+     <Compile Include="Assets\Scripts\Enemies\HelperScripts\DiffProjTypes.cs" />
+     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyBase.cs" />
+     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyChargingScript.cs" />
+     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyFlying.cs" />
+     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyJumpingScript.cs" />
+     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyMeleeScript.cs" />
+     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyProjectilePool.cs" />
+     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyShootingScript.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\AttackScript.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\Controller2D.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\DodgeRoll.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\PlayablePlayer\PlayerEnemyManager.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\PlayerHealthController.cs" />
      <Compile Include="Assets\Scripts\PlayablePlayer\StaminaBar.cs" />
+     <Compile Include="Assets\Scripts\UniversalStuff\Bullet.cs" />
      <Compile Include="Assets\Scripts\Utilities\Cooldown.cs" />
      <Compile Include="Assets\Scripts\Utilities\UtilityManager.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />

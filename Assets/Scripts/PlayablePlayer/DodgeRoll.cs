@@ -17,7 +17,6 @@ public class DodgeRoll : MonoBehaviour {
     public bool startEasing = false;
     public float rollTime = 0.3f;
     public float stamCost = 20f;
-    float totalClampTime;
     PlayablePlayer player;
     Cooldown cd;
     StaminaBar stam;
@@ -25,7 +24,6 @@ public class DodgeRoll : MonoBehaviour {
     void Start()
     {
         player = GetComponent<PlayablePlayer>();
-        totalClampTime = player.moveSpeed * 2f;
         cd = new Cooldown();
         stam = GetComponent<StaminaBar>();
     }

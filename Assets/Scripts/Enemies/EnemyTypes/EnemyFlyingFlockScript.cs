@@ -10,10 +10,8 @@ public class EnemyFlyingFlockScript : MonoBehaviour {
     public float bounce, keepX, keepY, flyAwayVal, keepAwayDist;
     public float radius = 5f;
     public List<EnemyFlying> flyingEnemies = new List<EnemyFlying>();
-    Rigidbody2D rb2d;
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         flyingEnemies = FindObjectsOfType<EnemyFlying>().OrderBy(x => x.gameObject.name).ToList();
 
     }

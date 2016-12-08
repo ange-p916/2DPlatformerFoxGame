@@ -13,8 +13,6 @@ public class EnemyBase : MonoBehaviour {
     protected Vector2 dirToTarget;
     protected float dstToTarget;
 
-    public float atkDist;
-
     protected virtual void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
