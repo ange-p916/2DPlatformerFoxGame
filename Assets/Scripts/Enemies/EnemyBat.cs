@@ -3,6 +3,9 @@ using System.Collections;
 
 public class EnemyBat : EnemyFlying {
 
+    public float timer = 1f;
+    public float newTimer = 1f;
+    public bool hasCded;
     EnemyMeleeScript melee;
 
     protected override void Start()
@@ -17,12 +20,29 @@ public class EnemyBat : EnemyFlying {
 
         if (distanceToPlayer <= engageDistance * engageDistance)
         {
-            ChaseOrRetreat(true);
-            StartCoroutine(melee.HoldUp(1f, 2f, flySpeed, flySpeed)); //atk timer, fly timer, speed, new speed
+            if(melee.Attack())
+            {
+                flySpeed = 0f;
+                hasCded = true;
+            }
+            else
+            {
+                ChaseOrRetreat(true);
+            }
         }
         else
         {
             ChaseOrRetreat(false);
+        }
+        if(hasCded)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0f)
+            {
+                flySpeed = 1.5f;
+                timer = newTimer;
+                hasCded = false;
+            }
         }
     }
 }

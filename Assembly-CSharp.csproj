@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Enemies\EnemyBat.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyChargingScript.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyFlying.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyFlyingFlockScript.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyFlyingShooter.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyJumpingScript.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyMeleeScript.cs" />
@@ -147,6 +148,7 @@
      <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\CutoutVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitBlendVertexColor.shader" />
+     <None Include="Assets\Prefabs\NewUnlitShader.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\AdditiveVertexColor.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity533f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
