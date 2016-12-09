@@ -77,6 +77,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\MetroidCamera.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyBat.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyChargerDude.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFlyingFlockScript.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFlyingShooter.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFrog.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\DiffProjTypes.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyChargingScript.cs" />
+    <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyCountDownScript.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyFlying.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyJumpingScript.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyMeleeScript.cs" />

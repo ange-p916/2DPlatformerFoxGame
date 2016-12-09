@@ -15,4 +15,13 @@ public class EnemyMeleeScript : MonoBehaviour {
         }
         return atkHit;
     }
+
+    public void AttackVoid()
+    {
+        var atkHit = Physics2D.CircleCast(transform.position, radius, Vector2.zero, radius, WhatIsPlayer);
+        if (atkHit)
+        {
+            atkHit.collider.GetComponent<PlayerHealthController>().PlayerTakeDamage(1f, this.transform);
+        }
+    }
 }
