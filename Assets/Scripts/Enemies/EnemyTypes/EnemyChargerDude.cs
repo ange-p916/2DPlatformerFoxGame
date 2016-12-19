@@ -24,6 +24,5 @@ public class EnemyChargerDude : EnemyBase {
             charge.Charge(whatSideIsPlayerAt, rb2d);
             cd.DoAction(melee.AttackVoid);
         }
-        
     }
 }

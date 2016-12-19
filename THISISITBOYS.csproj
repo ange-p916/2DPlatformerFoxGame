@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Camera\MetroidCamera.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyBat.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyChargerDude.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyDancer.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFlyingFlockScript.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFlyingShooter.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFrog.cs" />

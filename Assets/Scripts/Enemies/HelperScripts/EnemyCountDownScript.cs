@@ -13,6 +13,9 @@ public class EnemyCountDownScript {
     public float timeIsDoingAction; //time is doing action
     public float newTimeIsDoingAction; //new doing action timer
 
+    public bool isDeciding = false;
+
+    //must be called in start
     public EnemyCountDownScript(float _cd, float _newcd, float _timedoing, float _newtimedoing)
     {
         CDToAction = _cd;
@@ -20,8 +23,8 @@ public class EnemyCountDownScript {
         timeIsDoingAction = _timedoing;
         newTimeIsDoingAction = _newtimedoing;
     }
-
-    public void DoAction( Action action)
+    //must be called in update
+    public void DoAction( Action action) 
     {
         CDToAction -= Time.deltaTime;
         if (CDToAction <= 0)
@@ -43,4 +46,5 @@ public class EnemyCountDownScript {
             }
         }
     }
+
 }

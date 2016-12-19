@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 21283076}
   - component: {fileID: 6134630}
   - component: {fileID: 5007134}
-  - component: {fileID: 114106067805251860}
-  - component: {fileID: 114117791706271052}
-  - component: {fileID: 114330524332097120}
   m_Layer: 10
   m_Name: ENEMY
   m_TagString: Untagged
@@ -114,55 +111,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 109562}
   m_IsPrefabParent: 1
---- !u!114 &114106067805251860
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d496af2a4e8d83943971863d9df76fab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2.5
-  WhatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
---- !u!114 &114117791706271052
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa7c59d84d5f142428bade4bbc2d19bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countDownStart: 0
-  isCharging: 0
-  chargeSpeed: 10
-  countdownTimeToCharge: 3
-  newCDCharge: 3
-  timeIsCharging: 0.2
-  newChargeTimer: 0.2
---- !u!114 &114330524332097120
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2d19b5cca27fe2489ce3042eaf1305c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WhatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  WhatIsWall:
-    serializedVersion: 2
-    m_Bits: 256
-  distanceToPlayer: 0
-  engageDistance: 20
