@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealthController : MonoBehaviour
 {
+    SpriteRenderer sprender;
     private PlayablePlayer player;
     public bool isInvincible = false;
     public float curHealth = 7;
@@ -14,6 +11,7 @@ public class PlayerHealthController : MonoBehaviour
 
     void Start()
     {
+        sprender = GetComponent<SpriteRenderer>();
         player = GetComponent<PlayablePlayer>();
     }
     
@@ -35,7 +33,18 @@ public class PlayerHealthController : MonoBehaviour
             curHealth -= damage;
             isInvincible = true;
             StartCoroutine(TakeDamageAgain());
+            StartCoroutine(BlinkColor());
         }
+    }
+
+    private IEnumerator BlinkColor()
+    {
+        yield return new WaitForSeconds(0.01f);
+        sprender.color = Color.black;
+        player.moveSpeed /= 2f;
+        yield return new WaitForSeconds(1f);
+        sprender.color = Color.white;
+        player.moveSpeed = 6f;
     }
 
     private IEnumerator TakeDamageAgain()

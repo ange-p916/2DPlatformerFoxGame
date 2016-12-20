@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+//using Rewired;
 
-public class DodgeRoll : MonoBehaviour {
-
-    public Text directionText;
-    public Text dashDirText;
-
-    [Header("quickstep values")]
-    public float QSWhileWalking;
-    public float QSWhileStanding;
+public class PlayablePlayerDashScript : MonoBehaviour
+{
+    [Header("dash values")]
+    public float dashWhileWalking;
+    public float dashWhileStanding;
 
     [Header("Other values")]
     public float cooldown = 0.4f;
@@ -19,78 +17,84 @@ public class DodgeRoll : MonoBehaviour {
     public float stamCost = 20f;
     PlayablePlayer player;
     Cooldown cd;
+    //Player controllerInput;
+    Controller2D controller2d;
+    PlayerHealthController phc;
     StaminaBar stam;
-    
+    PlayablePlayerBackstep step;
     void Start()
     {
+        phc = GetComponent<PlayerHealthController>();
+        stam = FindObjectOfType<StaminaBar>();
         player = GetComponent<PlayablePlayer>();
         cd = new Cooldown();
-        stam = GetComponent<StaminaBar>();
+        // = ReInput.players.GetPlayer(0);
+        controller2d = GetComponent<Controller2D>();
+        step = GetComponent<PlayablePlayerBackstep>();
     }
 
     void Update()
     {
-        stam.stamina.value = stam.currentStamina;
         DodgeRollAnyDir();
         cd.Update();
     }
 
     public void DodgeRollAnyDir()
     {
-        var mInput = Input.GetAxis("Horizontal");
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+        //var mInput = controllerInput.GetAxis("Move Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            if (!cd.IsOnCoolDown && stam.currentStamina >= stamCost) // if we're not on cooldown
+            if (!cd.IsOnCoolDown && stam.currentStamina >= stamCost && !step.startEasing) // if we're not on cooldown
             {
                 stam.currentStamina -= stamCost;
                 t = 0f;
                 startEasing = true;
+                phc.isInvincible = true;
                 cd.Start(cooldown); //start cooldown
             }
-            
+
         }
 
         if (startEasing)
         {
-            player.velocity.x = 0f;
-            stam.currentStamina = Mathf.Clamp(stam.currentStamina, 0, 100f);
             while (t < rollTime)
             {
                 t += Time.deltaTime;
 
-                if(player.input.x != 0) //while walking
+                if (player.input.x != 0) //while walking
                 {
+                    
+                    
                     if (player.lookRight)
                     {
-                        dashDirText.text = "dashing left";
-                        player.moveSpeed -= mInput * QSWhileWalking;
+                       controller2d.Move(new Vector3(dashWhileWalking, 0f), player.input);
                     }
                     else if (!player.lookRight)
                     {
-                        dashDirText.text = "dashing right";
-                        player.moveSpeed += mInput * QSWhileWalking;
+                        controller2d.Move(new Vector3(-dashWhileWalking, 0f), player.input);
                     }
                 }
-                else if(player.input.x == 0) //while standing still
+                else if (player.input.x == 0) //while standing still
                 {
                     if (player.lookRight)
                     {
-                        player.velocity.x -= QSWhileStanding;
+                        controller2d.Move(new Vector3(dashWhileStanding, 0f), player.input);
                     }
                     else if (!player.lookRight)
                     {
-                        player.velocity.x += QSWhileStanding;
+                        controller2d.Move(new Vector3(-dashWhileStanding, 0f), player.input);
                     }
                 }
                 break;
-                
+
             }
             if (t >= rollTime)
             {
                 t = 0f;
-                player.moveSpeed = 5f;
-                player.velocity.x = 0f;
+                //player.moveSpeed = 5f;
+                //player.velocity.x = 0f;
+                phc.isInvincible = false;
                 startEasing = false;
             }
         }

@@ -94,8 +94,9 @@
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyShootingScript.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\AttackScript.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\Controller2D.cs" />
-    <Compile Include="Assets\Scripts\PlayablePlayer\DodgeRoll.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayablePlayer.cs" />
+    <Compile Include="Assets\Scripts\PlayablePlayer\PlayablePlayerBackstep.cs" />
+    <Compile Include="Assets\Scripts\PlayablePlayer\PlayablePlayerDashScript.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerAnimController.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerEnemyManager.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerHealthController.cs" />

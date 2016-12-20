@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Controller2D))]
 public class PlayablePlayer : MonoBehaviour
 {
-    KeyCode jumpButton = KeyCode.J;
+    KeyCode jumpButton = KeyCode.Space;
     public float runSpeed = 5f;
     public bool canWallJump = false;
     public bool lookRight = true;

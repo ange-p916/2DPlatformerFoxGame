@@ -7,6 +7,7 @@ public class StaminaBar : MonoBehaviour {
     public Slider stamina;
     public float currentStamina = 100f;
     public float regenRate = 2f;
+
     void Update()
     {
         currentStamina = Mathf.Clamp(currentStamina, 0, 100f);

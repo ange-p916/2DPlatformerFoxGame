@@ -19,11 +19,11 @@ public class EnemyDancer : EnemyBase {
     {
         base.Start();
         melee = GetComponent<EnemyMeleeScript>();
-        moveLeftCD = new EnemyCountDownScript(1f, 1f, 0.8f, 0.8f);
-        moveRightCD = new EnemyCountDownScript(2f, 2f, 0.8f, 0.8f);
-        attackCD = new EnemyCountDownScript(2f, 2f, 0.02f, 0.02f);
-        blockCD = new EnemyCountDownScript(1.5f, 1.5f, 1f, 1f);
-        notBlockingCD = new EnemyCountDownScript(0.5f, 0.5f, 0.5f, 0.5f);
+        moveLeftCD = new EnemyCountDownScript(1f, 1f, 0.8f, 0.8f);      //move left every second for 0.8 seconds
+        moveRightCD = new EnemyCountDownScript(2f, 2f, 0.8f, 0.8f);     //move right every 2nd second for 0.8 seconds
+        attackCD = new EnemyCountDownScript(2f, 2f, 0.02f, 0.02f);      //attack every 2nd second for 0.02 seconds
+        blockCD = new EnemyCountDownScript(1.5f, 1.5f, 1f, 1f);         //block every 1.5 second for 1 second
+        notBlockingCD = new EnemyCountDownScript(0.5f, 0.5f, 0.5f, 0.5f);//stop blocking every 0.5 second for 0.5 seconds
     }
 
     protected override void Update()

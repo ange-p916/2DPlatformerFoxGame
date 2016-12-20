@@ -23,6 +23,11 @@ public class EnemyBase : MonoBehaviour {
     {
         whatSideIsPlayerAt = (player.transform.position - this.transform.position).x > 0 ? Vector2.right : Vector2.left;
         distanceToPlayer = (player.transform.position - this.transform.position).sqrMagnitude;
+        var boxHit = Physics2D.BoxCast(transform.position, transform.localScale, 0f, Vector2.zero, transform.localScale.x, WhatIsPlayer);
+        if(boxHit)
+        {
+            boxHit.collider.GetComponent<PlayerHealthController>().PlayerTakeDamage(1f, this.transform);
+        }
         if(LineOfSight())
         {
             Debug.DrawLine(transform.position, player.transform.position);
