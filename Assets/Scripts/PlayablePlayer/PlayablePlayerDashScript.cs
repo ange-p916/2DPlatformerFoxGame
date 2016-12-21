@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class PlayablePlayerDashScript : MonoBehaviour
 {
     [Header("dash values")]
-    public float dashWhileWalking;
-    public float dashWhileStanding;
+    public float maxDash;
+    public float curDash;
+
 
     [Header("Other values")]
     public float cooldown = 0.4f;
@@ -41,13 +42,40 @@ public class PlayablePlayerDashScript : MonoBehaviour
 
     public void DodgeRollAnyDir()
     {
+        /*
+        units = input stam * max units / dash cost
+
+        if stam >= 20
+        stam -= 20
+        else
+        x = stam
+        and x = 20 first case
+        */
+
         //var mInput = controllerInput.GetAxis("Move Horizontal");
+
+        //curDash = stamCost * maxDash / stamCost;
+        curDash = stam.currentStamina * maxDash / 100f;
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            if (!cd.IsOnCoolDown && stam.currentStamina >= stamCost && !step.startEasing) // if we're not on cooldown
+            if (!cd.IsOnCoolDown && !step.startEasing) // if we're not on cooldown
             {
-                stam.currentStamina -= stamCost;
+                print(curDash);
+
+                if(stam.currentStamina >= stamCost)
+                {
+                    stam.currentStamina -= stamCost;
+                }
+                else if(stam.currentStamina < stamCost)
+                {
+                    stamCost = stam.currentStamina;
+                }
+                if(stam.currentStamina >= 20f)
+                {
+                    stamCost = 20f;
+                }
+                
                 t = 0f;
                 startEasing = true;
                 phc.isInvincible = true;
@@ -64,26 +92,24 @@ public class PlayablePlayerDashScript : MonoBehaviour
 
                 if (player.input.x != 0) //while walking
                 {
-                    
-                    
                     if (player.lookRight)
                     {
-                       controller2d.Move(new Vector3(dashWhileWalking, 0f), player.input);
+                       controller2d.Move(new Vector3(curDash, 0f), player.input);
                     }
                     else if (!player.lookRight)
                     {
-                        controller2d.Move(new Vector3(-dashWhileWalking, 0f), player.input);
+                        controller2d.Move(new Vector3(-curDash, 0f), player.input);
                     }
                 }
                 else if (player.input.x == 0) //while standing still
                 {
                     if (player.lookRight)
                     {
-                        controller2d.Move(new Vector3(dashWhileStanding, 0f), player.input);
+                        controller2d.Move(new Vector3(curDash, 0f), player.input);
                     }
                     else if (!player.lookRight)
                     {
-                        controller2d.Move(new Vector3(-dashWhileStanding, 0f), player.input);
+                        controller2d.Move(new Vector3(-curDash, 0f), player.input);
                     }
                 }
                 break;

@@ -47,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.55, y: -3.81, z: 0}
+  m_LocalPosition: {x: 22.989, y: -4.439, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 487176}
@@ -263,8 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d30bb97f807064694dbb851f8a49c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashWhileWalking: 0.3
-  dashWhileStanding: 0.3
+  maxDash: 0.3
+  curDash: 0
   cooldown: 0.4
   t: 0
   startEasing: 0
