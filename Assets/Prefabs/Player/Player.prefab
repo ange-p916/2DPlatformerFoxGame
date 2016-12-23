@@ -106,9 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b75bbdd25b9a764d8666245c6589874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasBeenAltered: 0
+  timer: 1.5
+  newTimer: 1.5
   stamina: {fileID: 0}
   currentStamina: 100
   regenRate: 15
+  lerpTime: 0
 --- !u!114 &11416616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,6 +136,7 @@ MonoBehaviour:
   maxJumpHeight: 4
   minJumpHeight: 1
   timeToJumpApex: 0.35
+  accelerationTimeGrounded: 0.4
   gravityFactor: 1.85
   velocity: {x: 0, y: 0, z: 0}
   input: {x: 0, y: 0}
@@ -186,12 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97dff788e980a314a89038d236fa35c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordCol: {fileID: 6194036}
-  isAttacking: 0
-  attkCounter: 0
-  totalAttkCounter: 2
+  attkCcounter: 0
+  activateCounter: 0
   timer: 0
-  totalTimer: 2
+  swordCol: {fileID: 6194036}
 --- !u!114 &11487942
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -416,7 +416,7 @@ Prefab:
       objectReference: {fileID: 1728200238}
     - target: {fileID: 11403034, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
       propertyPath: lerpTime
-      value: 60
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
@@ -459,6 +459,10 @@ Prefab:
     - target: {fileID: 4332054179759790, guid: 121d802aa28a3524aab8e6866641da8f, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809652643667528, guid: 121d802aa28a3524aab8e6866641da8f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 121d802aa28a3524aab8e6866641da8f, type: 2}

@@ -47,4 +47,10 @@ public class EnemyCountDownScript {
         }
     }
 
+    public void ResetTimer()
+    {
+        CDToAction = newCdToAction;
+        isDoingAction = false;
+    }
+
 }

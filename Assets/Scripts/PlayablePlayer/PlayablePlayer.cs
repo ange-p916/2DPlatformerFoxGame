@@ -23,7 +23,7 @@ public class PlayablePlayer : MonoBehaviour
     public float minJumpHeight = 1;
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
-    float accelerationTimeGrounded = .1f;
+    public float accelerationTimeGrounded = .1f;
 
     float maxJumpVelocity;
     float minJumpVelocity;

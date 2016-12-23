@@ -61,7 +61,8 @@ public class PlayablePlayerDashScript : MonoBehaviour
         {
             if (!cd.IsOnCoolDown && !step.startEasing) // if we're not on cooldown
             {
-                print(curDash);
+                stam.curLerpTime = 0f;
+                stam.hasBeenAltered = true;
 
                 if(stam.currentStamina >= stamCost)
                 {
