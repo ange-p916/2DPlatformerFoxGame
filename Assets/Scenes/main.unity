@@ -406,18 +406,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11460592, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
-      propertyPath: dashDirText
-      value: 
-      objectReference: {fileID: 2091034014}
     - target: {fileID: 11403034, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
       propertyPath: stamina
       value: 
       objectReference: {fileID: 1728200238}
-    - target: {fileID: 11403034, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
-      propertyPath: lerpTime
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 11460592, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
+      propertyPath: dashDirText
+      value: 
+      objectReference: {fileID: 2091034014}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
   m_IsPrefabParent: 0

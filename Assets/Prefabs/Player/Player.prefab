@@ -107,12 +107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenAltered: 0
-  timer: 1.5
-  newTimer: 1.5
   stamina: {fileID: 0}
   currentStamina: 100
   regenRate: 15
-  lerpTime: 0
+  curLerpTime: 0
+  lerpTime: 1
 --- !u!114 &11416616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,9 +190,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97dff788e980a314a89038d236fa35c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attkCcounter: 0
+  attkCounter: 0
   activateCounter: 0
-  timer: 0
+  stamCost: 10
+  timer: 3
+  newTimer: 3
+  secondTimer: 0
+  thirdTimer: 0
   swordCol: {fileID: 6194036}
 --- !u!114 &11487942
 MonoBehaviour:

@@ -28,7 +28,7 @@ public class StaminaBar : MonoBehaviour {
     void Update()
     {
         
-        if(Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.L) && hasBeenAltered)
+        if((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.K)) && hasBeenAltered)
         {
             curLerpTime = 0f;
             eCD.ResetTimer();
