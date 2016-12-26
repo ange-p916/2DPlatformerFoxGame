@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Controller2D : MonoBehaviour {
-    
+
+    public float pushSpeed = 1.25f;
     public LayerMask CollisionMask;
 
     const float skinWidth = 0.015f;
@@ -54,18 +55,11 @@ public class Controller2D : MonoBehaviour {
             Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
             if (hit)
             {
-                //if (hit.collider.gameObject.layer == 13) //if hitting platform
-                //{
-                //    if (directionX == -1 || directionX == 1 || hit.distance == 0)
-                //    {
-                //        continue;
-                //    }
-                //}
-
-                /*if(hit.collider.tag == "Key" && hit.distance == 0)
-				{
-					continue;
-				}*/
+                if(hit.collider.gameObject.layer == 13)
+                {
+                    var pushDir = (collisions.faceDir) > 0 ? pushSpeed : -pushSpeed;
+                    hit.collider.GetComponent<Rigidbody2D>().velocity = new Vector2(pushDir, 0f);
+                }
 
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
                 if (i == 0 && slopeAngle <= maxClimbAngle)

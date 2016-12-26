@@ -5,14 +5,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 453000}
-  - 20: {fileID: 2047738}
-  - 92: {fileID: 9233580}
-  - 124: {fileID: 12437298}
-  - 81: {fileID: 8162124}
-  - 114: {fileID: 11425816}
+  - component: {fileID: 453000}
+  - component: {fileID: 2047738}
+  - component: {fileID: 9233580}
+  - component: {fileID: 12437298}
+  - component: {fileID: 8162124}
+  - component: {fileID: 11425816}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -27,11 +27,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.36, y: 0, z: -10}
+  m_LocalPosition: {x: 22.88, y: -3.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2047738
 Camera:
   m_ObjectHideFlags: 1
@@ -40,7 +41,7 @@ Camera:
   m_GameObject: {fileID: 159138}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -52,7 +53,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

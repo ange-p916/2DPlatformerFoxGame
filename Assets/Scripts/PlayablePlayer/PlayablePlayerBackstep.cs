@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PlayablePlayerBackstep : MonoBehaviour {
 
     public Text directionText;
-    public Text dashDirText;
+    //public Text dashDirText;
 
     [Header("quickstep values")]
     public float QSWhileWalking;
@@ -67,12 +67,12 @@ public class PlayablePlayerBackstep : MonoBehaviour {
                 {
                     if (player.lookRight)
                     {
-                        dashDirText.text = "dashing left";
+                        //dashDirText.text = "dashing left";
                         player.moveSpeed -= mInput * QSWhileWalking;
                     }
                     else if (!player.lookRight)
                     {
-                        dashDirText.text = "dashing right";
+                        //dashDirText.text = "dashing right";
                         player.moveSpeed += mInput * QSWhileWalking;
                     }
                 }

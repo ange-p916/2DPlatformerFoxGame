@@ -6,16 +6,16 @@ public class MetroidCamera : MonoBehaviour
     public static MetroidCamera Instance; 
 
     [Header("Camera values")]
-    public float verticalOffset;
-    public float fallSpeedYToSmooth;
-    public float fallSmoothVelY;
-    public float newLookVariable;
-    public float lookUpVariable = 2f;
-    public float lookDownVariable = 2f;
-    public float lookAheadDstX;
-    public float lookSmoothTimeX;
-    public float verticalSmoothTime;
-    public Vector2 focusAreaSize;
+    public float verticalOffset = 0.08f;
+    public float fallSpeedYToSmooth = -18f;
+    public float fallSmoothVelY = 1f;
+    public float newLookVariable = 0f;
+    public float lookUpVariable = 1f;
+    public float lookDownVariable = 2.5f;
+    public float lookAheadDstX = 0.4f;
+    public float lookSmoothTimeX = 0.1f;
+    public float verticalSmoothTime = 0.1f;
+    public Vector2 focusAreaSize = new Vector2(0.58f, 4f);
     PlayablePlayer mPlayer;
 
     FocusArea focusArea;

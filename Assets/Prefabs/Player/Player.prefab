@@ -47,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.989, y: -4.439, z: 0}
+  m_LocalPosition: {x: 177.53761, y: 29.111834, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 487176}
@@ -135,7 +135,7 @@ MonoBehaviour:
   maxJumpHeight: 4
   minJumpHeight: 1
   timeToJumpApex: 0.35
-  accelerationTimeGrounded: 0.4
+  accelerationTimeGrounded: 0.1
   gravityFactor: 1.85
   velocity: {x: 0, y: 0, z: 0}
   input: {x: 0, y: 0}
@@ -150,9 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787f408b571c5b34cb63cadff41ac790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pushSpeed: 0.75
   CollisionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8448
   horizontalRayCount: 4
   verticalRayCount: 4
   maxClimbAngle: 80
