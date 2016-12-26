@@ -1,26 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Controller2D : MonoBehaviour {
+public class Controller2D : RaycastController {
+
+    /*
+    5:20 in E06 video sebastian lague
+    */
 
     public float pushSpeed = 1.25f;
     public LayerMask CollisionMask;
 
-    const float skinWidth = 0.015f;
-
-    public int horizontalRayCount = 4;
-    public int verticalRayCount = 4;
-
     public float maxClimbAngle = 80f;
     public float maxDescendAngle = 75f;
 
-    float horizontalRaySpacing;
-    float verticalRaySpacing;
 
-    [HideInInspector]
-    public BoxCollider2D thisCollider;
-
-    RaycastOrigins raycastOrigins;
     public CollisionInfo collisions;
     public Vector2 playerInputVector2;
 
@@ -29,11 +22,10 @@ public class Controller2D : MonoBehaviour {
     Vector2 shootDirDiagonally;
     private PlayablePlayer player;
 
-    void Awake()
+    public override void Start()
     {
+        base.Start();
         player = GetComponent<PlayablePlayer>();
-        thisCollider = GetComponent<BoxCollider2D>();
-        CalculateRaySpacing();
         collisions.faceDir = 1;
     }
 
@@ -118,26 +110,6 @@ public class Controller2D : MonoBehaviour {
                     GetComponent<PlayerHealthController>().PlayerTakeDamage(3f, this.transform);
                 }
 
-                //if (hit.collider.gameObject.layer == 9)
-                //{
-                //    CheckpointManager.Instance.isDead = true;
-                //}
-
-                //if (hit.collider.gameObject.layer == 13)
-                //{
-                //    if (directionY == 1 || hit.distance == 0)
-                //    {
-                //        continue;
-                //    }
-                //    /*if (playerInput.DPadY == -1 || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-                //    {
-                //        continue;
-                //    }*/
-                //}
-                //if (hit.collider.gameObject.layer == 9)
-                //{
-                //    CheckpointManager.Instance.KillPlayer();
-                //}
                 velocity.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
 
@@ -240,35 +212,6 @@ public class Controller2D : MonoBehaviour {
 
 
         transform.Translate(velocity);
-    }
-
-
-    void UpdateRaycastOrigins()
-    {
-        Bounds bounds = thisCollider.bounds;
-        bounds.Expand(skinWidth * -2);
-
-        raycastOrigins.bottomLeft = new Vector2(bounds.min.x, bounds.min.y);
-        raycastOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);
-        raycastOrigins.topLeft = new Vector2(bounds.min.x, bounds.max.y);
-        raycastOrigins.topRight = new Vector2(bounds.max.x, bounds.max.y);
-    }
-
-    void CalculateRaySpacing()
-    {
-        Bounds bounds = thisCollider.bounds;
-        bounds.Expand(skinWidth * -2);
-        horizontalRayCount = Mathf.Clamp(horizontalRayCount, 2, int.MaxValue);
-        verticalRayCount = Mathf.Clamp(verticalRayCount, 2, int.MaxValue);
-
-        horizontalRaySpacing = bounds.size.y / (horizontalRayCount - 1);
-        verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
-    }
-
-    struct RaycastOrigins
-    {
-        public Vector2 topLeft, topRight;
-        public Vector2 bottomLeft, bottomRight;
     }
 
     public struct CollisionInfo

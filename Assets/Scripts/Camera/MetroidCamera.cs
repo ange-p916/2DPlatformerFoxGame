@@ -31,14 +31,10 @@ public class MetroidCamera : MonoBehaviour
 
     bool lookAheadStopped;
 
-    void Awake()
+    void Start()
     {
         mPlayer = FindObjectOfType<PlayablePlayer>();
         target = FindObjectOfType<Controller2D>();
-    }
-
-    void Start()
-    {
         focusArea = new FocusArea(target.thisCollider.bounds, focusAreaSize);
     }
 
