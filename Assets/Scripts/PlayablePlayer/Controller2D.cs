@@ -47,11 +47,18 @@ public class Controller2D : RaycastController {
             Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
             if (hit)
             {
+                if(hit.distance == 0)
+                {
+                    continue;
+                }
+
                 if(hit.collider.gameObject.layer == 13)
                 {
                     var pushDir = (collisions.faceDir) > 0 ? pushSpeed : -pushSpeed;
                     hit.collider.GetComponent<Rigidbody2D>().velocity = new Vector2(pushDir, 0f);
                 }
+
+
 
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
                 if (i == 0 && slopeAngle <= maxClimbAngle)
@@ -105,9 +112,19 @@ public class Controller2D : RaycastController {
 
             if (hit)
             {
-                if(hit.collider.gameObject.layer == 9)
+                if(hit.collider.gameObject.layer == 15)
                 {
-                    GetComponent<PlayerHealthController>().PlayerTakeDamage(3f, this.transform);
+                    if(hit.distance == 0 || directionY == 1)
+                    {
+                        continue;
+                    }
+                    //if(player.input.y == -1)
+                    //{
+                    //    if(Input.GetKeyDown(KeyCode.Space))
+                    //    {
+                    //        continue;
+                    //    }
+                    //}
                 }
 
                 velocity.y = (hit.distance - skinWidth) * directionY;
@@ -184,7 +201,7 @@ public class Controller2D : RaycastController {
     }
 
 
-    public void Move(Vector3 velocity, Vector2 input)
+    public void Move(Vector3 velocity, Vector2 input, bool standingOnPlatform = false)
     {
         UpdateRaycastOrigins();
         collisions.Reset();
@@ -212,6 +229,11 @@ public class Controller2D : RaycastController {
 
 
         transform.Translate(velocity);
+
+        if(standingOnPlatform)
+        {
+            collisions.below = true;
+        }
     }
 
     public struct CollisionInfo

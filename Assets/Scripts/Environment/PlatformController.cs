@@ -6,12 +6,14 @@ public class PlatformController : RaycastController
 {
     /*
 
-        youtube seb lague E07 moving platform collisions 9:35
+        
 
     */
 
     public LayerMask PassengerMask;
     List<PassengerMovement> passengerMovement;
+    Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
+    
     public Vector3 move;
 
     public override void Start()
@@ -35,9 +37,14 @@ public class PlatformController : RaycastController
     {
         foreach(PassengerMovement pas in passengerMovement)
         {
+            if(passengerDictionary.ContainsKey(pas.transform))
+            {
+                passengerDictionary.Add(pas.transform, pas.transform.GetComponent<Controller2D>());
+            }
+
             if(pas.moveBeforePlatform == beforeMovePlatform)
             {
-                pas.transform.GetComponent<Controller2D>().Move(pas.velocity, pas.transform.GetComponent<Controller2D>().playerInputVector2);
+                passengerDictionary[pas.transform].Move(pas.velocity, pas.transform.GetComponent<Controller2D>().playerInputVector2,pas.standingOnPlatform);
             }
         }
     }
@@ -92,7 +99,7 @@ public class PlatformController : RaycastController
                     {
                         movedPassengers.Add(hit.transform);
                         float pushX = velocity.x - (hit.distance - skinWidth) * directionX;
-                        float pushY = 0f;
+                        float pushY = -skinWidth;
 
                         passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), false, true));
                     }
