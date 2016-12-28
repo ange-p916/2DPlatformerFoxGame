@@ -4,40 +4,71 @@ using UnityEngine;
 
 public class PlatformController : RaycastController
 {
-    /*
-
-        
-
-    */
-
+    public float totalLerpTime;
+    public Transform[] points;
     public LayerMask PassengerMask;
     List<PassengerMovement> passengerMovement;
     Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
-    
-    public Vector3 move;
+
+    Vector3 velocity;
+
+    public Vector3 whatDirection;
+    public bool startMoving = false;
+
+    UtilityManager utility;
+    RaycastHit2D vHit;
 
     public override void Start()
     {
         base.Start();
+        utility = new UtilityManager();
     }
 
     void Update()
     {
         UpdateRaycastOrigins();
-        Vector3 velocity = move * Time.deltaTime;
+        //move code below here
+
+        if (startMoving)
+        {
+            velocity = MovePlatform(0,1);
+            StartCoroutine(WaitToMoveBack(5f, false));
+        }
+        else if(!startMoving && vHit)
+        {
+            utility.curLerpTime = 0f;
+            velocity = MovePlatform(1, 0);
+        }
+
+        //move code above here
 
         CalculatePassengerMovement(velocity);
 
         MovePassengers(true);
+
+        
         transform.Translate(velocity);
         MovePassengers(false);
+    }
+
+    IEnumerator WaitToMoveBack(float secs, bool upOrDown)
+    {
+        yield return new WaitForSeconds(totalLerpTime + secs);
+        startMoving = upOrDown;
+    }
+
+    Vector3 MovePlatform(int firstIndex, int secIndex)
+    {
+        Vector3 newPos = utility.StartLerping(points[firstIndex].transform.position, points[secIndex].transform.position, totalLerpTime);
+
+        return newPos - transform.position;
     }
 
     void MovePassengers(bool beforeMovePlatform)
     {
         foreach(PassengerMovement pas in passengerMovement)
         {
-            if(passengerDictionary.ContainsKey(pas.transform))
+            if(!passengerDictionary.ContainsKey(pas.transform))
             {
                 passengerDictionary.Add(pas.transform, pas.transform.GetComponent<Controller2D>());
             }
@@ -81,8 +112,32 @@ public class PlatformController : RaycastController
                 }
             }
         }
+        else if (velocity.y == 0f)
+        {
+            float rayLength = Mathf.Abs(velocity.y) + skinWidth;
 
-        //hor
+            for (int i = 0; i < verticalRayCount; i++)
+            {
+                Vector2 rayOrigin = raycastOrigins.topLeft + Vector2.right * (verticalRaySpacing * i);
+                vHit = Physics2D.Raycast(rayOrigin, Vector2.up, rayLength, PassengerMask);
+
+                if (vHit)
+                {
+                    startMoving = true;
+
+                    if (!movedPassengers.Contains(vHit.transform))
+                    {
+                        movedPassengers.Add(vHit.transform);
+                        float pushX = (directionY == 1) ? velocity.x : 0;
+                        float pushY = velocity.y - (vHit.distance - skinWidth) * directionY;
+
+                        passengerMovement.Add(new PassengerMovement(vHit.transform, new Vector3(pushX, pushY), directionY == 1, true));
+                    }
+                }
+            }
+        }
+
+        //hor move platform
         if (velocity.x != 0)
         {
             float rayLength = Mathf.Abs(velocity.x) + skinWidth;

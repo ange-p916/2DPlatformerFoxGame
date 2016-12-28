@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyProjectilePool.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyShootingScript.cs" />
     <Compile Include="Assets\Scripts\Environment\PlatformController.cs" />
+    <Compile Include="Assets\Scripts\Environment\TriggerScript.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\AttackScript.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\Controller2D.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayablePlayer.cs" />
