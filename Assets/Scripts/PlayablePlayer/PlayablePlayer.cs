@@ -138,13 +138,13 @@ public class PlayablePlayer : MonoBehaviour
                     velocity.y = wallJumpLeap.y;
                 }
             }
-            if(controller.collisions.below)
+            if(controller.collisions.below && !Input.GetKey(KeyCode.S))
             {
                 velocity.y = maxJumpVelocity;
             }
             
         }
-        if (Input.GetKeyUp(jumpButton))
+        if (Input.GetKeyUp(jumpButton) && !Input.GetKey(KeyCode.S))
         {
             if (velocity.y > minJumpVelocity)
             {

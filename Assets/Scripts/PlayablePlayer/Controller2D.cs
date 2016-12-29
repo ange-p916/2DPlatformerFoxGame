@@ -118,6 +118,10 @@ public class Controller2D : RaycastController {
                     {
                         continue;
                     }
+                    if(Input.GetKey(KeyCode.S))
+                    {
+                        continue;
+                    }
                     //if(player.input.y == -1)
                     //{
                     //    if(Input.GetKeyDown(KeyCode.Space))

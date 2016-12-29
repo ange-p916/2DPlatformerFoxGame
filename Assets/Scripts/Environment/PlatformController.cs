@@ -28,17 +28,8 @@ public class PlatformController : RaycastController
     {
         UpdateRaycastOrigins();
         //move code below here
+        
 
-        if (startMoving)
-        {
-            velocity = MovePlatform(0,1);
-            StartCoroutine(WaitToMoveBack(5f, false));
-        }
-        else if(!startMoving && vHit)
-        {
-            utility.curLerpTime = 0f;
-            velocity = MovePlatform(1, 0);
-        }
 
         //move code above here
 
@@ -54,15 +45,25 @@ public class PlatformController : RaycastController
     IEnumerator WaitToMoveBack(float secs, bool upOrDown)
     {
         yield return new WaitForSeconds(totalLerpTime + secs);
-        startMoving = upOrDown;
+        //do some code here
     }
 
-    Vector3 MovePlatform(int firstIndex, int secIndex)
-    {
-        Vector3 newPos = utility.StartLerping(points[firstIndex].transform.position, points[secIndex].transform.position, totalLerpTime);
+    //Vector3 MovePlatform()
+    //{
+    //    int fromIndex = 0;
+    //    int toIndex = 1;
 
-        return newPos - transform.position;
-    }
+    //    Vector3 newPos = utility.StartLerping(points[fromIndex].transform.position, points[toIndex].transform.position, totalLerpTime);
+
+    //    if(utility.curLerpTime >= totalLerpTime)
+    //    {
+
+    //    }
+
+    //    if()
+
+    //    return newPos - transform.position;
+    //}
 
     void MovePassengers(bool beforeMovePlatform)
     {
@@ -73,7 +74,7 @@ public class PlatformController : RaycastController
                 passengerDictionary.Add(pas.transform, pas.transform.GetComponent<Controller2D>());
             }
 
-            if(pas.moveBeforePlatform == beforeMovePlatform)
+            if (pas.moveBeforePlatform == beforeMovePlatform)
             {
                 passengerDictionary[pas.transform].Move(pas.velocity, pas.transform.GetComponent<Controller2D>().playerInputVector2,pas.standingOnPlatform);
             }
@@ -89,7 +90,7 @@ public class PlatformController : RaycastController
         float directionY = Mathf.Sign(velocity.y);
 
         //vert move platform
-        if (velocity.y != 0)
+        if (velocity.y != 0 || velocity.y == 0)
         {
             float rayLength = Mathf.Abs(velocity.y) + skinWidth;
 
@@ -101,6 +102,7 @@ public class PlatformController : RaycastController
 
                 if (hit)
                 {
+                    startMoving = true;
                     if (!movedPassengers.Contains(hit.transform))
                     {
                         movedPassengers.Add(hit.transform);
@@ -108,30 +110,6 @@ public class PlatformController : RaycastController
                         float pushY = velocity.y - (hit.distance - skinWidth) * directionY;
 
                         passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), directionY == 1, true));
-                    }
-                }
-            }
-        }
-        else if (velocity.y == 0f)
-        {
-            float rayLength = Mathf.Abs(velocity.y) + skinWidth;
-
-            for (int i = 0; i < verticalRayCount; i++)
-            {
-                Vector2 rayOrigin = raycastOrigins.topLeft + Vector2.right * (verticalRaySpacing * i);
-                vHit = Physics2D.Raycast(rayOrigin, Vector2.up, rayLength, PassengerMask);
-
-                if (vHit)
-                {
-                    startMoving = true;
-
-                    if (!movedPassengers.Contains(vHit.transform))
-                    {
-                        movedPassengers.Add(vHit.transform);
-                        float pushX = (directionY == 1) ? velocity.x : 0;
-                        float pushY = velocity.y - (vHit.distance - skinWidth) * directionY;
-
-                        passengerMovement.Add(new PassengerMovement(vHit.transform, new Vector3(pushX, pushY), directionY == 1, true));
                     }
                 }
             }
