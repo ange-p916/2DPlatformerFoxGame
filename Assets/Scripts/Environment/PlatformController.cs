@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class PlatformController : RaycastController
 {
     public float totalLerpTime;
     public Transform[] points;
+    public int[] movePoints;
     public LayerMask PassengerMask;
     List<PassengerMovement> passengerMovement;
     Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
@@ -13,7 +15,6 @@ public class PlatformController : RaycastController
     Vector3 velocity;
 
     public Vector3 whatDirection;
-    public bool startMoving = false;
 
     UtilityManager utility;
     RaycastHit2D vHit;
@@ -22,6 +23,7 @@ public class PlatformController : RaycastController
     {
         base.Start();
         utility = new UtilityManager();
+        movePoints = new int[] { 0, 1 };
     }
 
     void Update()
@@ -38,7 +40,7 @@ public class PlatformController : RaycastController
         MovePassengers(true);
 
         
-        transform.Translate(velocity);
+        transform.Translate(MovePlatform());
         MovePassengers(false);
     }
 
@@ -48,22 +50,23 @@ public class PlatformController : RaycastController
         //do some code here
     }
 
-    //Vector3 MovePlatform()
-    //{
-    //    int fromIndex = 0;
-    //    int toIndex = 1;
+    Vector3 MovePlatform()
+    {
+        Vector3 newPos = utility.StartLerping(points[movePoints[0]].transform.position, points[movePoints[1]].transform.position, totalLerpTime);
 
-    //    Vector3 newPos = utility.StartLerping(points[fromIndex].transform.position, points[toIndex].transform.position, totalLerpTime);
+        if (utility.curLerpTime >= totalLerpTime)
+        {
+            if(transform.position == points[movePoints[1]].position)
+            {
+                utility.curLerpTime = 0f;
+                Array.Reverse(movePoints);
+                newPos = utility.StartLerping(points[movePoints[0]].transform.position, points[movePoints[1]].transform.position, totalLerpTime);
+                print("we're there now");
+            }
+        }
 
-    //    if(utility.curLerpTime >= totalLerpTime)
-    //    {
-
-    //    }
-
-    //    if()
-
-    //    return newPos - transform.position;
-    //}
+        return newPos - transform.position;
+    }
 
     void MovePassengers(bool beforeMovePlatform)
     {
@@ -102,7 +105,6 @@ public class PlatformController : RaycastController
 
                 if (hit)
                 {
-                    startMoving = true;
                     if (!movedPassengers.Contains(hit.transform))
                     {
                         movedPassengers.Add(hit.transform);

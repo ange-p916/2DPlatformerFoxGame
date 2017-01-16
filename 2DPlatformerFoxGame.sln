@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DPlatformerFoxGame", "2DPlatformerFoxGame.csproj", "{3B03E1A9-C696-AE76-70AA-633574F28A43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DPlatformerFoxGame.Editor", "2DPlatformerFoxGame.Editor.csproj", "{D068A2DD-5BB1-2F1B-089C-FB518E947F6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B03E1A9-C696-AE76-70AA-633574F28A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B03E1A9-C696-AE76-70AA-633574F28A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B03E1A9-C696-AE76-70AA-633574F28A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B03E1A9-C696-AE76-70AA-633574F28A43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D068A2DD-5BB1-2F1B-089C-FB518E947F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D068A2DD-5BB1-2F1B-089C-FB518E947F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D068A2DD-5BB1-2F1B-089C-FB518E947F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D068A2DD-5BB1-2F1B-089C-FB518E947F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
