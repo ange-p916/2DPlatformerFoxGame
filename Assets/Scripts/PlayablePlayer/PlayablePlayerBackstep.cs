@@ -45,7 +45,7 @@ public class PlayablePlayerBackstep : MonoBehaviour {
         {
             if (!cd.IsOnCoolDown && stam.currentStamina >= stamCost && !dash.startEasing) // if we're not on cooldown
             {
-                //stam.curLerpTime = 0f;
+                stam.curLerpTime = 0f;
                 stam.hasBeenAltered = true;
                 stam.currentStamina -= stamCost;
                 t = 0f;

@@ -94,7 +94,6 @@
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyShootingScript.cs" />
     <Compile Include="Assets\Scripts\Environment\PlatformController.cs" />
     <Compile Include="Assets\Scripts\Environment\TriggerScript.cs" />
-    <Compile Include="Assets\Scripts\PlayablePlayer\AttackScript.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\Controller2D.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayablePlayer.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayablePlayerBackstep.cs" />
@@ -102,7 +101,10 @@
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerAnimController.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerEnemyManager.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerHealthController.cs" />
+    <Compile Include="Assets\Scripts\PlayablePlayer\PlayerShotController.cs" />
+    <Compile Include="Assets\Scripts\PlayablePlayer\ProjectilePool.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\RaycastController.cs" />
+    <Compile Include="Assets\Scripts\PlayablePlayer\ShotController.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\StaminaBar.cs" />
     <Compile Include="Assets\Scripts\UniversalStuff\Bullet.cs" />
     <Compile Include="Assets\Scripts\Utilities\Cooldown.cs" />

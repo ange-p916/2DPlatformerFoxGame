@@ -480,6 +480,11 @@ Prefab:
       propertyPath: stamina
       value: 
       objectReference: {fileID: 1728200238}
+    - target: {fileID: 114083891223704084, guid: 4c7f58c36f47dd54a90e53f4653192bc,
+        type: 2}
+      propertyPath: stamina
+      value: 
+      objectReference: {fileID: 1728200238}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c7f58c36f47dd54a90e53f4653192bc, type: 2}
   m_IsPrefabParent: 0

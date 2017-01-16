@@ -61,22 +61,22 @@ public class PlayablePlayerDashScript : MonoBehaviour
         {
             if (!cd.IsOnCoolDown && !step.startEasing) // if we're not on cooldown
             {
-                //stam.curLerpTime = 0f;
+                stam.curLerpTime = 0f;
                 stam.hasBeenAltered = true;
 
-                if(stam.currentStamina >= stamCost)
+                if (stam.currentStamina >= stamCost)
                 {
                     stam.currentStamina -= stamCost;
                 }
-                else if(stam.currentStamina < stamCost)
+                else if (stam.currentStamina < stamCost)
                 {
                     stamCost = stam.currentStamina;
                 }
-                if(stam.currentStamina >= 20f)
+                if (stam.currentStamina >= 20f)
                 {
                     stamCost = 20f;
                 }
-                
+
                 t = 0f;
                 startEasing = true;
                 phc.isInvincible = true;

@@ -12,8 +12,6 @@ public class PlatformController : RaycastController
     List<PassengerMovement> passengerMovement;
     Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
 
-    Vector3 velocity;
-
     public Vector3 whatDirection;
 
     UtilityManager utility;
@@ -30,17 +28,17 @@ public class PlatformController : RaycastController
     {
         UpdateRaycastOrigins();
         //move code below here
-        
 
+        Vector3 vel = MovePlatform();
 
         //move code above here
 
-        CalculatePassengerMovement(velocity);
+        CalculatePassengerMovement(vel);
 
         MovePassengers(true);
 
         
-        transform.Translate(MovePlatform());
+        transform.Translate(vel);
         MovePassengers(false);
     }
 
@@ -61,7 +59,7 @@ public class PlatformController : RaycastController
                 utility.curLerpTime = 0f;
                 Array.Reverse(movePoints);
                 newPos = utility.StartLerping(points[movePoints[0]].transform.position, points[movePoints[1]].transform.position, totalLerpTime);
-                print("we're there now");
+                //print("we're there now");
             }
         }
 
@@ -79,7 +77,7 @@ public class PlatformController : RaycastController
 
             if (pas.moveBeforePlatform == beforeMovePlatform)
             {
-                passengerDictionary[pas.transform].Move(pas.velocity, pas.transform.GetComponent<Controller2D>().playerInputVector2,pas.standingOnPlatform);
+                passengerDictionary[pas.transform].Move(pas.velocity,Vector2.zero,pas.standingOnPlatform);
             }
         }
     }
