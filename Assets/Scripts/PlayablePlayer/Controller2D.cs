@@ -206,7 +206,6 @@ public class Controller2D : RaycastController {
         }
     }
 
-
     public void Move(Vector3 velocity, Vector2 input = default(Vector2), bool standingOnPlatform = false)
     {
         UpdateRaycastOrigins();

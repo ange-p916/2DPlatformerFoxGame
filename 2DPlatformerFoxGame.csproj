@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyJumpingScript.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyMeleeScript.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyShootingScript.cs" />
+    <Compile Include="Assets\Scripts\Environment\MovingPlatformTrigger.cs" />
     <Compile Include="Assets\Scripts\Environment\PlatformController.cs" />
     <Compile Include="Assets\Scripts\Environment\TriggerScript.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\Controller2D.cs" />

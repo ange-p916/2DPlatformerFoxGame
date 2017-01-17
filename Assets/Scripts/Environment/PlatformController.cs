@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlatformController : RaycastController
 {
+    public bool isPlayerOn;
     public float totalLerpTime;
     public Transform[] points;
     public int[] movePoints;
@@ -13,7 +14,7 @@ public class PlatformController : RaycastController
     Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
 
     public Vector3 whatDirection;
-
+    Vector3 vel;
     UtilityManager utility;
     RaycastHit2D vHit;
 
@@ -28,15 +29,22 @@ public class PlatformController : RaycastController
     {
         UpdateRaycastOrigins();
         //move code below here
-
-        Vector3 vel = MovePlatform();
+        if(isPlayerOn)
+        {
+            vel = MovePlatform();
+        }
+        else
+        {
+            vel = Vector3.zero;
+        }
+        
 
         //move code above here
 
         CalculatePassengerMovement(vel);
 
         MovePassengers(true);
-
+        
         
         transform.Translate(vel);
         MovePassengers(false);
@@ -110,7 +118,9 @@ public class PlatformController : RaycastController
                         float pushY = velocity.y - (hit.distance - skinWidth) * directionY;
 
                         passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), directionY == 1, true));
+                        
                     }
+                    
                 }
             }
         }

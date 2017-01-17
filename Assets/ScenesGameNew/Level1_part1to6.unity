@@ -608,11 +608,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114082143162240652, guid: bcfb11001c67f8a48b06d97a4b432942,
-        type: 2}
-      propertyPath: points.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4511705723574128, guid: bcfb11001c67f8a48b06d97a4b432942, type: 2}
       propertyPath: m_LocalPosition.x
       value: 236
@@ -655,11 +650,6 @@ Prefab:
       propertyPath: points.Array.data[1]
       value: 
       objectReference: {fileID: 2121089326}
-    - target: {fileID: 114082143162240652, guid: bcfb11001c67f8a48b06d97a4b432942,
-        type: 2}
-      propertyPath: totalLerpTime
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bcfb11001c67f8a48b06d97a4b432942, type: 2}
   m_IsPrefabParent: 0
@@ -5733,6 +5723,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11425816, guid: c96f54f0b0a4b864cb85ae4dc07c8172, type: 2}
+      propertyPath: focusAreaSize.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c96f54f0b0a4b864cb85ae4dc07c8172, type: 2}
   m_IsPrefabParent: 0
@@ -6648,6 +6642,7 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   thisCollider: {fileID: 0}
+  isPlayerOn: 0
   totalLerpTime: 0
   points: []
   movePoints: 
