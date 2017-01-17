@@ -6,12 +6,13 @@ using System.Collections.Generic;
 *
 */
 
-public class EnemyProjectilePool
+public class ProjectilePool
 {
 
     public List<GameObject> projectiles;
 
-    public void StartUpThePool(int amount, GameObject projectile) //always call this function first
+    //always call this function first
+    public void StartUpThePool(int amount, GameObject projectile) 
     {
         GameObject newObj;
 

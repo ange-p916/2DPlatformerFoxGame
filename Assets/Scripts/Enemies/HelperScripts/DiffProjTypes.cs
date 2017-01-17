@@ -15,7 +15,7 @@ public class DiffProjTypes : MonoBehaviour {
     public bool highArc;
 
     float theta;
-    EnemyProjectilePool pool = new EnemyProjectilePool();
+    ProjectilePool pool = new ProjectilePool();
 
     void Start()
     {

@@ -90,7 +90,6 @@
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyFlying.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyJumpingScript.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyMeleeScript.cs" />
-    <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyProjectilePool.cs" />
     <Compile Include="Assets\Scripts\Enemies\HelperScripts\EnemyShootingScript.cs" />
     <Compile Include="Assets\Scripts\Environment\PlatformController.cs" />
     <Compile Include="Assets\Scripts\Environment\TriggerScript.cs" />
@@ -101,13 +100,15 @@
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerAnimController.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerEnemyManager.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerHealthController.cs" />
+    <Compile Include="Assets\Scripts\PlayablePlayer\PlayerProjTypes.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayerShotController.cs" />
-    <Compile Include="Assets\Scripts\PlayablePlayer\ProjectilePool.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\RaycastController.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\ShotController.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\StaminaBar.cs" />
+    <Compile Include="Assets\Scripts\PlayablePlayer\mProjectilePool.cs" />
     <Compile Include="Assets\Scripts\UniversalStuff\Bullet.cs" />
     <Compile Include="Assets\Scripts\Utilities\Cooldown.cs" />
+    <Compile Include="Assets\Scripts\Utilities\ProjectilePool.cs" />
     <Compile Include="Assets\Scripts\Utilities\UtilityManager.cs" />
     <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
     <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />

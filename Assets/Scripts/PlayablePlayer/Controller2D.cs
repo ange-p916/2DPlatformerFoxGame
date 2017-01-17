@@ -22,6 +22,8 @@ public class Controller2D : RaycastController {
     Vector2 shootDirDiagonally;
     private PlayablePlayer player;
 
+    public bool lookRight, lookUp, lookDown;
+
     public override void Start()
     {
         base.Start();

@@ -3,11 +3,15 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-    public LayerMask WhatIsPlayer;
+    public LayerMask WhatIsEnemyType;
     public float timer = 0f;
     public float travelDuration = 2f;
     public float radiusndistance;
-    
+    Cooldown cd = new Cooldown();
+    UtilityManager util = new UtilityManager();
+
+    int cntr = 0;
+
     void OnEnable()
     {
         timer = 0;
@@ -21,15 +25,44 @@ public class Bullet : MonoBehaviour {
         {
             gameObject.SetActive(false);
         }
+        cd.Update();
     }
 
     void HitStuff()
     {
-        var hit = Physics2D.CircleCast(transform.position, radiusndistance, Vector2.zero, radiusndistance, WhatIsPlayer);
+        var hit = Physics2D.CircleCast(transform.position, radiusndistance, Vector2.zero, radiusndistance, WhatIsEnemyType);
         if (hit)
         {
-            hit.collider.gameObject.GetComponent<PlayerHealthController>().PlayerTakeDamage(1f, this.transform);
-            this.gameObject.SetActive(false);
+            if(hit.collider.gameObject.layer == 9)
+            {
+                hit.collider.gameObject.GetComponent<PlayerHealthController>().PlayerTakeDamage(1f, this.transform);
+                this.gameObject.SetActive(false);
+            }
+            else if(hit.collider.gameObject.layer == 10)
+            {
+                
+                if(!cd.IsOnCoolDown)
+                {
+                    cd.Start(2f);
+                    cntr++;
+                    print(cntr);
+                }
+                else if(cd.IsOnCoolDown)
+                {
+                    cntr = 0;
+                }
+
+                if(cntr >= 2 % 1) //third shot, when cntr is 3
+                {
+                    StartCoroutine(util.DoTheShake(Camera.main));
+                }
+
+                print("hit enemy");
+                //hit.collider.gameObject.GetComponent<EnemyBase>().TakeDamage
+                this.gameObject.SetActive(false);
+            }
+
+            
         }
     }
 
