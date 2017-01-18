@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlatformController : RaycastController
 {
+    public bool canMovePlatforms;
     public bool isPlayerOn;
     public float totalLerpTime;
     public Transform[] points;
@@ -29,14 +30,24 @@ public class PlatformController : RaycastController
     {
         UpdateRaycastOrigins();
         //move code below here
-        if(isPlayerOn)
+
+        if(canMovePlatforms)
         {
-            vel = MovePlatform();
+            if (isPlayerOn)
+            {
+                vel = MovePlatform();
+            }
+            else
+            {
+                vel = Vector3.zero;
+            }
         }
         else
         {
             vel = Vector3.zero;
         }
+
+        
         
 
         //move code above here
@@ -48,12 +59,6 @@ public class PlatformController : RaycastController
         
         transform.Translate(vel);
         MovePassengers(false);
-    }
-
-    IEnumerator WaitToMoveBack(float secs, bool upOrDown)
-    {
-        yield return new WaitForSeconds(totalLerpTime + secs);
-        //do some code here
     }
 
     Vector3 MovePlatform()

@@ -17,9 +17,23 @@ public class UtilityManager {
             curLerpTime = lerpTime;
         }
         float percentage = curLerpTime / lerpTime;
-
+        
        return Vector3.Lerp(pA, pB, percentage);
     }
+
+    public float LerpTime(float a, float b, float lerpTime)
+    {
+        curLerpTime += Time.deltaTime;
+        if(curLerpTime > lerpTime)
+        {
+            curLerpTime = lerpTime;
+        }
+        float perc = curLerpTime / lerpTime;
+
+        return Mathf.Lerp(a, b, perc);
+
+    }
+
 
     public IEnumerator DoTheShake(Camera tcam)
     {
@@ -46,6 +60,21 @@ public class UtilityManager {
         elapsed = 0f;
         tcam.transform.position = originalCamPos;
         //mcam.enabled = true;
+    }
+
+    Vector2 WorldToCanvasPosition(RectTransform _canvas, Camera _camera, Vector3 _position)
+    {
+        //vector pos (percentage from 0 to 1) considering camera size
+        Vector2 temp = _camera.WorldToViewportPoint(_position);
+
+        //calc position considering percentage, using canvas size
+        temp.x *= _canvas.sizeDelta.x;
+        temp.y *= _canvas.sizeDelta.y;
+
+        temp.x -= _canvas.sizeDelta.x * _canvas.pivot.x;
+        temp.y -= _canvas.sizeDelta.y * _canvas.pivot.y;
+
+        return temp;
     }
 
 }

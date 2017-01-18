@@ -225,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\NewUnlitShader.shader" />
+    <None Include="Assets\Shaders\BWDiffuse.shader" />
     <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
     <None Include="Assets\TK2DROOT\tk2d\Goodies\TexturePacker\Exporter\2dtoolkit\exporter.xml" />
     <None Include="Assets\TK2DROOT\tk2d\Shaders\AdditiveVertexColor.shader" />

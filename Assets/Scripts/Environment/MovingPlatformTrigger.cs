@@ -18,7 +18,11 @@ public class MovingPlatformTrigger : MonoBehaviour {
         {
             mparent.isPlayerOn = true;
         }
-        else
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.layer == 9)
         {
             mparent.isPlayerOn = false;
         }

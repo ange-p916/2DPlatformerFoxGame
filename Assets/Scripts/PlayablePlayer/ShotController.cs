@@ -7,7 +7,6 @@ public class ShotController : MonoBehaviour {
     public float secondsBetweenShots = 0.15f;
 
     float nextPosShotTime;
-    bool startShaking = false;
     PlayerProjTypes pProjs;
 
     

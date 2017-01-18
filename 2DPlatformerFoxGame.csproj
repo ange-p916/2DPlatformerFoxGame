@@ -75,10 +75,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Camera\GameOverScreen.cs" />
     <Compile Include="Assets\Scripts\Camera\MetroidCamera.cs" />
+    <Compile Include="Assets\Scripts\Checkpoints\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\Checkpoints\CheckpointManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyBat.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyChargerDude.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyDancer.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyDropSplit.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFlyingFlockScript.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFlyingShooter.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyTypes\EnemyFrog.cs" />
@@ -94,6 +98,7 @@
     <Compile Include="Assets\Scripts\Environment\MovingPlatformTrigger.cs" />
     <Compile Include="Assets\Scripts\Environment\PlatformController.cs" />
     <Compile Include="Assets\Scripts\Environment\TriggerScript.cs" />
+    <Compile Include="Assets\Scripts\Environment\TriggersTouching.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\Controller2D.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayablePlayer.cs" />
     <Compile Include="Assets\Scripts\PlayablePlayer\PlayablePlayerBackstep.cs" />
@@ -111,6 +116,7 @@
     <Compile Include="Assets\Scripts\Utilities\Cooldown.cs" />
     <Compile Include="Assets\Scripts\Utilities\ProjectilePool.cs" />
     <Compile Include="Assets\Scripts\Utilities\UtilityManager.cs" />
+    <Compile Include="Assets\Shaders\BWEffect.cs" />
     <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
     <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />
     <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraUtil.cs" />
@@ -180,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\NewUnlitShader.shader" />
+    <None Include="Assets\Shaders\BWDiffuse.shader" />
     <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
     <None Include="Assets\TK2DROOT\tk2d\Goodies\TexturePacker\Exporter\2dtoolkit\exporter.xml" />
     <None Include="Assets\TK2DROOT\tk2d\Shaders\AdditiveVertexColor.shader" />

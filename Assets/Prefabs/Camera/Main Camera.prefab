@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 12437298}
   - component: {fileID: 8162124}
   - component: {fileID: 11425816}
+  - component: {fileID: 114588051438677494}
+  - component: {fileID: 114525750732229444}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -27,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.88, y: -3.03, z: -10}
+  m_LocalPosition: {x: 107.7, y: 87.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +103,7 @@ MonoBehaviour:
   lookAheadDstX: 0.4
   lookSmoothTimeX: 0.1
   verticalSmoothTime: 0.1
-  focusAreaSize: {x: 0.58, y: 4}
+  focusAreaSize: {x: 1, y: 4}
   switchToCinematicMode: 0
   currentLookAheadX: 0
 --- !u!124 &12437298
@@ -122,3 +124,28 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159138}
   m_IsPrefabParent: 1
+--- !u!114 &114525750732229444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2131e3d5135d6864086899a3d769b503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  totalIntensityTime: 2
+--- !u!114 &114588051438677494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f984ef05b92a62488deb023295ab1b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 0
