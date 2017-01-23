@@ -18,19 +18,16 @@ public class CheckpointManager : MonoBehaviour
 
     //List<LifeCapsule> capsules = new List<LifeCapsule>();
     
-    EnemyCountDownScript eCD;
+    
 
-    BWEffect bwEffect;
-    UtilityManager util;
+    
 
-    public float totalIntensityTime = 2f;
+    
 
     void Awake()
     {
         Instance = this;
-        bwEffect = FindObjectOfType<BWEffect>();
-        util = new UtilityManager();
-        eCD = new EnemyCountDownScript(1f, 1f, 2f, 2f);
+        
         
     }
 
@@ -120,34 +117,7 @@ public class CheckpointManager : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            isDead = true;
-        }
-        if (isDead)
-        {
-            eCD.DoAction(DoBWeffect);
-            if(bwEffect.intensity >= 1)
-            {
-                //TODO: ADD GAME OVER SCREEN
-
-                isDead = false;
-                eCD.ResetTimer();
-            }
-        }
-        else if(!isDead)
-        {
-            bwEffect.intensity = 0f;
-            util.curLerpTime = 0f;
-        }
-    }
-
-    void DoBWeffect()
-    {
-        bwEffect.intensity = util.LerpTime(0f, 1f, totalIntensityTime);
-    }
+    
 
     public void KillPlayer()
     {

@@ -1,0 +1,9 @@
+make color fade out
+bw shader 		x
+place player on ui corresponding to where it died
+play animation or do something
+
+deactivate player object
+translate to ui space
+activate ui thing
+lerp it
